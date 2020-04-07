@@ -27,7 +27,7 @@ For example, if the Template Text is `username example privilege 15 secret 0 MyP
 Template Text and Negation Template Text are **not** validated by AOS. They are issued directly to the devices. If you improperly configure a Configlet, AOS does not raise warnings or restrictions. To ensure that a Configlet performs exactly as intended, test Configlet templates and negation templates on a separate dedicated device.
 
 # Configlet Examples
-In `payloads` are known working and tested configlet examples in JSON format.
+in `payloads` are known working and tested configlet examples in JSON format. Configlets that affect numbered interfaces (native_vlan.json) or existing routing processes (static_routes.json) must be edited to match the device details of your environment. 
 
 * native_vlan.json
   * EOS
