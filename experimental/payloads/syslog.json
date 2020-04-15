@@ -1,0 +1,22 @@
+{
+  "display_name": "Github - Syslog",
+  "generators": [
+    {
+      "config_style": "nxos",
+      "section": "system",
+      "section_condition": null,
+      "filename": "",
+      "template_text": "logging server 10.0.5.12 5 use-vrf management",
+      "negation_template_text": "no logging server 10.0.5.12 5 use-vrf management"
+    },
+    {
+      "config_style": "eos",
+      "section": "system",
+      "section_condition": null,
+      "filename": "",
+      "template_text": "logging trap debugging\nlogging vrf mgmt host 10.0.5.12\nlogging facility local7\nlogging vrf mgmt source-interface Management1",
+      "negation_template_text": "no logging trap debugging\nno logging vrf mgmt host 10.0.5.12\nno logging facility local7\nno logging vrf mgmt source-interface Management1"
+    }
+  ],
+  "ref_archs": ["two_stage_l3clos"]
+}
