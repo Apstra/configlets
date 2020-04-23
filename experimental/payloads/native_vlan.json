@@ -1,0 +1,14 @@
+{
+  "display_name": "Github - Native VLAN Changes",
+  "generators": [
+    {
+      "config_style": "eos",
+      "section": "system",
+      "section_condition": null,
+      "filename": "",
+      "template_text": "interface Ethernet13\n  switchport trunk native vlan 300\ninterface Ethernet14\n  switchport trunk native vlan 300\n",
+      "negation_template_text": "interface Ethernet13\n  no switchport trunk native vlan 300\ninterface Ethernet14\n  no switchport trunk native vlan 300"
+    }
+  ],
+  "ref_archs": ["two_stage_l3clos"]
+}

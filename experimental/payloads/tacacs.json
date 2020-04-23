@@ -1,0 +1,22 @@
+{
+  "display_name": "Github - TACACS",
+  "generators": [
+    {
+      "config_style": "nxos",
+      "section": "system",
+      "section_condition": null,
+      "filename": "",
+      "template_text": "feature tacacs+\ntacacs-server host 10.0.0.25 key keyhashkeyhash\ntacacs-server host 10.0.0.26 key keyhashkeyhash\naaa group server tacacs+ TACACS-GROUP\nserver 10.0.0.25\nserver 10.0.0.26\nuse-vrf management\nsource-interface mgmt0\naaa authentication login default group TACACS-GROUP\naaa authentication login console group TACACS-GROUP\naaa accounting default group TACACS-GROUP\naaa authentication login error-enable",
+      "negation_template_text": "no aaa authentication login default group TACACS-GROUP\nno aaa authentication login console group TACACS-GROUP\nno aaa accounting default group TACACS-GROUP\nno aaa authentication login error-enable\nno aaa group server tacacs+ TACACS-GROUP\nno tacacs-server host 10.0.0.25\nno tacacs-server host 10.0.0.26\nno feature tacacs+"
+    },
+    {
+      "config_style": "eos",
+      "section": "system",
+      "section_condition": null,
+      "filename": "",
+      "template_text": "tacacs-server host 10.0.0.25 vrf management key keyhashkeyhash\ntacacs-server host 10.0.0.26 vrf management key keyhashkeyhash\naaa group server tacacs+ TACACS-GROUP\nserver 10.0.0.25 vrf management\nserver 10.0.0.26 vrf management\nexit\naaa authentication login default group TACACS-GROUP local\naaa authentication login console local\naaa authorization exec default group tacacs+ local none\naaa accounting exec console stop-only group tacacs+\naaa accounting commands all default start-stop group tacacs+\nip tacacs vrf management source-interface Management1",
+      "negation_template_text": "\nno aaa authentication login default group TACACS-GROUP local\nno aaa authentication login console local\nno aaa authorization exec default group tacacs+ local none\naaa authorization exec default local\nno aaa accounting exec console stop-only group tacacs+\nno aaa accounting commands all default start-stop group tacacs+\nno aaa group server tacacs+ TACACS-GROUP\nno tacacs-server host 10.0.0.25 vrf management key 7 keyhashkeyhash\nno tacacs-server host 10.0.0.26 vrf management key 7 keyhashkeyhash\nno ip tacacs vrf management source-interface Management1"
+    }
+  ],
+  "ref_archs": ["two_stage_l3clos"]
+}

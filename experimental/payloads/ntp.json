@@ -1,0 +1,22 @@
+{
+  "display_name": "Github - NTP",
+  "generators": [
+    {
+      "config_style": "nxos",
+      "section": "system",
+      "section_condition": null,
+      "filename": "",
+      "template_text": "clock timezone CST -6 0\nclock summer-time CDT 1 Sun Mar 02:00 1 Sun Nov 02:00 60\nntp server 10.10.200.1 use-vrf management\nntp source-interface  mgmt0\nntp logging",
+      "negation_template_text": "clock timezone CST -6 0\nno clock summer-time CDT 1 Sun Mar 02:00 1 Sun Nov 02:00 60\nno ntp server 10.10.200.1 use-vrf management\nno ntp source-interface  mgmt0\nno ntp logging"
+    },
+    {
+      "config_style": "eos",
+      "section": "system",
+      "section_condition": null,
+      "filename": "",
+      "template_text": "ntp source vrf management Management1\nntp server vrf management 10.10.200.1 prefer iburst",
+      "negation_template_text": "no ntp source vrf management Management1\nno ntp server vrf management 10.10.200.1 prefer iburst"
+    }
+  ],
+  "ref_archs": ["two_stage_l3clos"]
+}

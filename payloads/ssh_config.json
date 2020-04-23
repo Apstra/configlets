@@ -1,0 +1,22 @@
+{
+  "display_name": "Github - SSH",
+  "generators": [
+    {
+      "config_style": "nxos",
+      "section": "system",
+      "section_condition": null,
+      "filename": "",
+      "template_text": "line console\nexec-timeout 15\nline vty\nexec-timeout 15",
+      "negation_template_text": "line console\nno exec-timeout 15\nline vty\nno exec-timeout 15"
+    },
+    {
+      "config_style": "eos",
+      "section": "system",
+      "section_condition": null,
+      "filename": "",
+      "template_text": "management console\nidle-timeout 15\nexit\nmanagement ssh\nidle-timeout 15\ncipher aes128-ctr aes128-gcm@openssh.com aes192-ctr aes256-ctr aes256-gcm@openssh.com\nmac hmac-sha2-256 hmac-sha2-256-etm@openssh.com hmac-sha2-512 hmac-sha2-512-etm@openssh.com umac-128@openssh.com hmac-sha1\nvrf management\nno shutdown\nexit\nshutdown\nexit",
+      "negation_template_text": "management console\nno idle-timeout 15\nexit\nmanagement ssh\nno shutdown\nno idle-timeout 15\nno cipher aes128-ctr aes128-gcm@openssh.com aes192-ctr aes256-ctr aes256-gcm@openssh.com\nno mac hmac-sha2-256 hmac-sha2-256-etm@openssh.com hmac-sha2-512 hmac-sha2-512-etm@openssh.com umac-128@openssh.com hmac-sha1\nno vrf mangement\nexit"
+    }
+  ],
+  "ref_archs": ["two_stage_l3clos"]
+}
