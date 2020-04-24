@@ -21,7 +21,7 @@ Some use case examples include:
 
 1. Syslog
 2. SNMP access policy
-3. TACACS / RADIUS
+3. TACACS or RADIUS
 4. Management ACLs
 5. NTP
 
