@@ -1,0 +1,7 @@
+{ 
+    "values": {
+        "services_mgmt": "ssh@mgmt,ntp@mgmt", 
+        "services_default": "ssh,ntp"
+    }, 
+    "label": "cl_services"
+}

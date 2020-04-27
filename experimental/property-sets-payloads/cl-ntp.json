@@ -1,0 +1,7 @@
+{
+    "values": {
+        "ntp_server_del": "0.cumulusnetworks.pool.ntp.org,1.cumulusnetworks.pool.ntp.org,2.cumulusnetworks.pool.ntp.org,3.cumulusnetworks.pool.ntp.org", 
+        "ntp_server": "10.10.0.1,10.10.0.2,10.10.0.3,10.10.0.4"
+    }, 
+    "label": "cl_ntp_servers"
+}

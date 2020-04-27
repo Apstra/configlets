@@ -1,0 +1,24 @@
+{
+    "display_name": "Github - Mgmt VRF services", 
+    "generators": [
+        {
+            "config_style": "cumulus", 
+            "section": "system", 
+            "section_condition": null,
+            "filename": "",
+            "template_text": "{% for service in services_default.split(',') %}\n  systemctl stop {{ service }}\n  systemctl disable {{ service }}\n{% endfor %}\n", 
+            "negation_template_text": "{% for service in services_default.split(',') %}\n  systemctl start {{ service }}\n  systemctl enable {{ service }}\n{% endfor %}", 
+            "filename": ""
+        }, 
+        {
+            "config_style": "cumulus", 
+            "section": "system",
+            "section_condition": null,
+            "filename": "",
+            "template_text": "{% for service in services_mgmt.split(',') %}\n  systemctl start {{ service }}\n  systemctl enable {{ service }}\n{% endfor %}", 
+            "negation_template_text": "{% for service in services_mgmt.split(',') %}\n  systemctl stop {{ service }}\n  systemctl disable {{ service }}\n{% endfor %}", 
+            "filename": ""
+        }
+    ],
+    "ref_archs": ["two_stage_l3clos"]
+}
