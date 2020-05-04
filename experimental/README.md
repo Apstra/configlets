@@ -12,16 +12,16 @@ Configlets that affect numbered interfaces (native_vlan.json) or existing routin
 
 ---
 
-| Configlet              | Depends on Property-Sets   | NX-OS   | EOS     | CLN     | Juniper | Use                                                                                                       |
+| Configlet              | Property-Sets              | NX-OS   | EOS     | CLN     | Juniper | Use                                                                                                       |
 | ---------------------- | ---------------------------| ------- | ------- | ------- | ------- | --------------------------------------------------------------------------------------------------------- |
-| ative_vlan.json        | No                         |         | Y       |         |         | Change the native vlan on a port.                                                                         |
+| ative_vlan.json        |                            |         | Y       |         |         | Change the native vlan on a port.                                                                         |
 | ntp.json               | ntp-set.json               |         | Y       | Y       |         | Clock and NTP server.                                                                                     |
-| snmp.json              | No                         | Y       | Y       |         |         | SNMP Server Configuration.                                                                                |
-| spanning_tree.json     | No                         | Y       |         |         |         | Enable Spanning Tree and priority.                                                                        |
-| ssh_config.json        | No                         | Y       | Y       |         |         | Console and timeout settings.                                                                             |
-| static_routes.json     | No                         | Y       |         |         |         | Create static routes with VRFs. Used when the upstream device doesn't support dynamic routing protocols   |
-| syslog.json            | No                         | Y       | Y       |         |         | Trap and logging configuration.                                                                           |
-| tacacs.json            | No                         | Y       | Y       |         |         | TACACS and AAA configuration.                                                                             |
+| snmp.json              |                            | Y       | Y       |         |         | SNMP Server Configuration.                                                                                |
+| spanning_tree.json     |                            | Y       |         |         |         | Enable Spanning Tree and priority.                                                                        |
+| ssh_config.json        |                            | Y       | Y       |         |         | Console and timeout settings.                                                                             |
+| static_routes.json     |                            | Y       |         |         |         | Create static routes with VRFs. Used when the upstream device doesn't support dynamic routing protocols   |
+| syslog.json            |                            | Y       | Y       |         |         | Trap and logging configuration.                                                                           |
+| tacacs.json            |                            | Y       | Y       |         |         | TACACS and AAA configuration.                                                                             |
 | mgmt_vrf_services.json | mgmt_vrf_services-set.json |         |         | Y       |         | Restrict Services in Mgmt VRF.                                                                            |
 
 
