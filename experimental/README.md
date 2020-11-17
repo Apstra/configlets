@@ -6,22 +6,23 @@ For more detailed information refer to [Configlet READ.md](../README.md)
 
 
 # Experimental Examples
-Configlet examples in `payloads` are in JSON format. 
+Configlet examples in `configlets-payloads` and `property-sets-payloads` are in JSON format. 
 
 Configlets that affect numbered interfaces (native_vlan.json) or existing routing process IDs (static_routes.json) must be edited to match the device details of your environment.  Otherwise, they will not work properly. 
 
 ---
 
-| Configlet          | OS         | Use                                                                                                      |
-| ------------------ | ---------- | -------------------------------------------------------------------------------------------------------- |
-| native_vlan.json   | EOS        | Change the native vlan on a port                                                                         |
-| ntp.json           | EOS        | Clock and NTP server                                                                                     |
-| snmp.json          | NX-OS, EOS | SNMP Server Configuration                                                                                |
-| spanning_tree.json | NX-OS      | Enable Spanning Tree and priority                                                                        |
-| ssh_config.json    | NX-OS, EOS | Console and timeout settings                                                                             |
-| static_routes.json | NX-OS      | Create static routes with VRFs.  Used when the upstream device doesn't support dynamic routing protocols |
-| syslog.json        | NX-OS, EOS | Trap and logging configuration                                                                           |
-| tacacs.json        | NX-OS, EOS | TACACS and AAA configuration                                                                             |
+| Configlet              | Property-Sets              | NX-OS   | EOS     | CLN     | Juniper | Use                                                                                                       |
+| ---------------------- | ---------------------------| ------- | ------- | ------- | ------- | --------------------------------------------------------------------------------------------------------- |
+| ative_vlan.json        |                            |         | Y       |         |         | Change the native vlan on a port.                                                                         |
+| ntp.json               | ntp-set.json               |         | Y       | Y       |         | Clock and NTP server.                                                                                     |
+| snmp.json              |                            | Y       | Y       |         |         | SNMP Server Configuration.                                                                                |
+| spanning_tree.json     |                            | Y       |         |         |         | Enable Spanning Tree and priority.                                                                        |
+| ssh_config.json        |                            | Y       | Y       |         |         | Console and timeout settings.                                                                             |
+| static_routes.json     |                            | Y       |         |         |         | Create static routes with VRFs. Used when the upstream device doesn't support dynamic routing protocols   |
+| syslog.json            |                            | Y       | Y       |         |         | Trap and logging configuration.                                                                           |
+| tacacs.json            |                            | Y       | Y       |         |         | TACACS and AAA configuration.                                                                             |
+| mgmt_vrf_services.json | mgmt_vrf_services-set.json |         |         | Y       |         | Restrict Services in Mgmt VRF.                                                                            |
 
 
 > **NOTES**:
@@ -37,4 +38,8 @@ Configlets that affect numbered interfaces (native_vlan.json) or existing routin
 3. Create the new configlet via `POST` to AOS API 
 ```
 /api/design/configlets
+```
+4. Optionnaly, create the new property-sets via `POST` to AOS API 
+```
+/api/property-sets
 ```

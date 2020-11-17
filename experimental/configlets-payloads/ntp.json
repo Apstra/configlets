@@ -16,6 +16,24 @@
       "filename": "",
       "template_text": "ntp source vrf management Management1\nntp server vrf management 10.10.200.1 prefer iburst",
       "negation_template_text": "no ntp source vrf management Management1\nno ntp server vrf management 10.10.200.1 prefer iburst"
+    },
+    {
+        "config_style": "cumulus", 
+        "section": "system", 
+        "section_condition": null,
+        "filename": "",
+        "template_text": "{% for ntpserver in ntp_server_del.split(',') %}\n  net del time ntp server {{ ntpserver }}\n{% endfor %}\nnet commit", 
+        "negation_template_text": "{% for ntpserver in ntp_server_del.split(',') %}\n  net add time ntp server {{ ntpserver }}\n{% endfor %}\nnet commit", 
+        "filename": ""
+    }, 
+    {
+        "config_style": "cumulus", 
+        "section": "system", 
+        "section_condition": null,
+        "filename": "",
+        "template_text": "{% for ntpserver in ntp_server.split(',') %}\n  net add time ntp server {{ ntpserver }} iburst\n{% endfor %} \nnet commit", 
+        "negation_template_text": "{% for ntpserver in ntp_server.split(',') %}\n  net del time ntp server {{ ntpserver }} \n{% endfor %} \nnet commit", 
+        "filename": ""
     }
   ],
   "ref_archs": ["two_stage_l3clos"]
